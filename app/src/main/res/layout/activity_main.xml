@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".MainActivity"
+    android:background="@android:color/background_dark">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/device_A"
+        android:id="@+id/buttonA"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/textViewMain"
+        android:layout_centerHorizontal="true"
+        android:background="#ffbdbdbd"
+        android:onClick="whichDeviceIsSelected" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/device_B"
+        android:id="@+id/buttonB"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/buttonA"
+        android:layout_alignLeft="@+id/buttonA"
+        android:layout_alignStart="@+id/buttonA"
+        android:background="#ffbdbdbd"
+        android:onClick="whichDeviceIsSelected" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/device_C"
+        android:id="@+id/buttonC"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/buttonB"
+        android:layout_alignLeft="@+id/buttonB"
+        android:layout_alignStart="@+id/buttonB"
+        android:background="#ffbdbdbd"
+        android:onClick="whichDeviceIsSelected" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewMain"
+        android:layout_marginTop="43dp"
+        android:text="@string/select"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/holo_blue_light" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/robotImage"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/robotImg"
+        android:src="@drawable/robot"
+        android:layout_below="@+id/buttonC"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

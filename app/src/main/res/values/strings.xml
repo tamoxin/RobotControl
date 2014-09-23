@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Control Your Robot</string>
+    <string name="axis">Axis</string>
+    <string name="movement">Movement</string>
+    <string name="rotation">Rotation</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_sensors_data">SensorsData</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="device_A">Device A</string>
+    <string name="device_B">Device B</string>
+    <string name="device_C">Device C</string>
+    <string name="select">Please select one device</string>
+    <string name="robotImg">Robot guide</string>
+    <string name="back">Back</string>
+    <string name="accelerometerError">Get rid of this toaster!</string>
+    <string name="ipNumber"> This is your IP: </string>
+    <string name="portNumber">This is your port: </string>
+
+</resources>
+

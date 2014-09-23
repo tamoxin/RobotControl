@@ -1,0 +1,99 @@
+<TableLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="*"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/background_dark">
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/axis"
+            android:id="@+id/axis"
+            android:layout_column="0"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_blue_light" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movement"
+            android:id="@+id/movement"
+            android:layout_column="1"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_blue_light" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:id="@+id/textView3"
+            android:layout_column="0"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_blue_light" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/xValue"
+            android:layout_column="1"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_blue_light" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Y"
+            android:id="@+id/textView4"
+            android:layout_column="0"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_blue_light" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/yValue"
+            android:layout_column="1"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_blue_light" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Z"
+            android:id="@+id/textView7"
+            android:layout_column="0"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_blue_light" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/zValue"
+            android:layout_column="1" android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_blue_light" />
+    </TableRow>
+
+</TableLayout>
