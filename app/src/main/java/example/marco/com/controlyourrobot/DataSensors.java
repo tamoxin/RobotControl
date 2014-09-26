@@ -11,10 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.List;
 
-//This class gets the necessary data from the accelerometer
+//This class gets the necessary data from the gyroscope
 public class DataSensors extends Activity implements SensorEventListener{
     private TextView x,y,z;
-    private Sensor accelerometer;
+    private Sensor gyroscope;
     private int whichDeviceWasSelected;
     private float valueOfX = 0, valueOfY = 0, valueOfZ = 0;
     private float previousValueOfX = 0, previousValueOfY = 0, previousValueOfZ = 0;

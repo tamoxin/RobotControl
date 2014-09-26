@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ControlYourRobot.iml" filepath="$PROJECT_DIR$/ControlYourRobot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RobotControl.iml" filepath="$PROJECT_DIR$/RobotControl.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
