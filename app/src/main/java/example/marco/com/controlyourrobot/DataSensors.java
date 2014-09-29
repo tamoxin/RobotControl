@@ -23,7 +23,7 @@ public class DataSensors extends Activity implements SensorEventListener{
     private int port = 61557;
     private String ip;
     private InformationSender packager;
-    Toast toaster, accelerometerDetected, ipToaster, portToaster;
+    Toast toaster, gyroscopeDetected, ipToaster, portToaster;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -46,27 +46,28 @@ public class DataSensors extends Activity implements SensorEventListener{
     @Override
     protected void onResume() {
         super.onResume();
-        SensorManager accelerometerSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-        List<Sensor> sensorsList = accelerometerSensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER);
+        SensorManager gyroscopeSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        List<Sensor> sensorsList = gyroscopeSensorManager.getSensorList(Sensor.TYPE_GYROSCOPE);
         if (sensorsList.size() == 0) {
-            toaster = Toast.makeText(this,"@string/accelerometerError",Toast.LENGTH_SHORT);
+            toaster = Toast.makeText(this,"@string/gyroscopeError",Toast.LENGTH_SHORT);
             toaster.show();
             return;
         }
-        accelerometerSensorManager.registerListener(this, sensorsList.get(0), SensorManager.SENSOR_DELAY_NORMAL);
+        gyroscope = gyroscopeSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        gyroscopeSensorManager.registerListener(this, gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
     protected void onPause() {
         SensorManager mSensorManager=(SensorManager) getSystemService(SENSOR_SERVICE);
-        mSensorManager.unregisterListener(this, accelerometer);
+        mSensorManager.unregisterListener(this, gyroscope);
         super.onPause();
     }
 
     @Override
     protected void onStop() {
         SensorManager mSensorManager=(SensorManager) getSystemService(SENSOR_SERVICE);
-        mSensorManager.unregisterListener(this, accelerometer);
+        mSensorManager.unregisterListener(this, gyroscope);
         super.onStop();
     }
 
@@ -78,9 +79,9 @@ public class DataSensors extends Activity implements SensorEventListener{
         valueOfY = previousValueOfY*(1-filter) + currentValueOfY*filter;
         valueOfZ = previousValueOfZ*(1-filter) + currentValueOfZ*filter;
 
-        currentValueOfX = event.values[SensorManager.DATA_X];
-        currentValueOfY = event.values[SensorManager.DATA_Y];
-        currentValueOfZ = event.values[SensorManager.DATA_Z];
+        currentValueOfX = event.values[0];
+        currentValueOfY = event.values[1];
+        currentValueOfZ = event.values[2];
 
         packager.setSensorsMessage(valueOfX,valueOfY,valueOfZ);
         packager.sendPackage();

@@ -14,7 +14,7 @@
     <string name="select">Please select one device</string>
     <string name="robotImg">Robot guide</string>
     <string name="back">Back</string>
-    <string name="accelerometerError">Get rid of this toaster!</string>
+    <string name="gyroscopeError">Get rid of this toaster!</string>
     <string name="ipNumber"> This is your IP: </string>
     <string name="portNumber">This is your port: </string>
     <string name="angles">Angles</string>
