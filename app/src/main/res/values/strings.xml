@@ -18,6 +18,7 @@
     <string name="ipNumber"> This is your IP: </string>
     <string name="portNumber">This is your port: </string>
     <string name="angles">Angles</string>
+    <string name="direction">Direction</string>
 
 </resources>
 

@@ -100,24 +100,34 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:layout_column="0" />
     </TableRow>
 
     <TableRow
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
-    </TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/direction"
+            android:id="@+id/direction"
+            android:layout_column="0"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_blue_dark" />
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/textView2"
+            android:layout_column="1"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/holo_blue_dark" />
     </TableRow>
 
 </TableLayout>
