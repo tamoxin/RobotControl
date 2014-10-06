@@ -19,6 +19,10 @@
     <string name="portNumber">This is your port: </string>
     <string name="angles">Angles</string>
     <string name="direction">Direction</string>
+    <string name="right">Right</string>
+    <string name="left">Left</string>
+    <string name="up">Up</string>
+    <string name="down">Down</string>
 
 </resources>
 

@@ -23,10 +23,10 @@ public class DataSensors extends Activity implements SensorListener {
     private InformationSender packager;
     private Toast ipToaster, portToaster;
 
-    public float xViewPositive;
-    public float xViewNegative;
-    public float yViewPositive;
-    public float yViewNegative;
+    public float yViewPositive = 20;
+    public float yViewNegative = -20;
+    public float zViewPositive = 20;
+    public float zViewNegative = -20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -38,7 +38,7 @@ public class DataSensors extends Activity implements SensorListener {
         x = (TextView) findViewById(R.id.xValue);
         y = (TextView) findViewById(R.id.yValue);
         z = (TextView) findViewById(R.id.zValue);
-        direction = (TextView) findViewById(R.id.direction);
+        direction = (TextView) findViewById(R.id.directionValues);
         ipToaster = Toast.makeText(this,"ipNumber: " + ip,Toast.LENGTH_SHORT);
         ipToaster.show();
         portToaster = Toast.makeText(this,"PortNumber: " + port,Toast.LENGTH_SHORT);
@@ -52,8 +52,9 @@ public class DataSensors extends Activity implements SensorListener {
     @Override
     protected void onResume() {
         super.onResume();
-        mySensorManager.registerListener(this, SensorManager.SENSOR_ORIENTATION |
-                SensorManager.SENSOR_ACCELEROMETER, SensorManager.SENSOR_DELAY_NORMAL);
+        mySensorManager.registerListener(this, SensorManager.SENSOR_ORIENTATION
+                | SensorManager.SENSOR_ACCELEROMETER
+                ,SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
@@ -78,11 +79,26 @@ public class DataSensors extends Activity implements SensorListener {
 
         synchronized (this){
             Log.d(sensorLog, "On sensor changed: " + i + " X:" + floats[0] + " Y:" + floats[1] + " Z:" + floats[2]);
-            //if (i == SensorManager.SENSOR_ORIENTATION){
+            if(i == SensorManager.SENSOR_ORIENTATION){
+                if(floats[1] >= yViewPositive)
+                    direction.setText("Up");
+                else if(floats[1] <= yViewNegative)
+                    direction.setText("Down");
+                else if(floats[2] >= zViewPositive)
+                    direction.setText("Left");
+                else if(floats[2] <= zViewNegative)
+                    direction.setText("Right");
+                /*else if(!(floats[1] >= yViewPositive
+                        || floats[1] <= yViewNegative)
+                        && !(floats[2] >= zViewPositive
+                        || floats[2] <= zViewNegative));
+                    direction.setText("Stopped");*/
+            }
+            if(i == SensorManager.SENSOR_ACCELEROMETER){
                 x.setText(""+floats[0]);
                 y.setText(""+floats[1]);
                 z.setText(""+floats[2]);
-            //}
+            }
         }
     }
 
