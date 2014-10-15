@@ -17,11 +17,11 @@ public class DataSensors extends Activity implements SensorListener {
     private TextView x,y,z,direction;
     private SensorManager mySensorManager;
     private int whichDeviceWasSelected;
-    private float filter = (float)0.7;
     private int port = 61557;
     private String ip;
     private InformationSender packager;
     private Toast ipToaster, portToaster;
+    private String message;
 
     public float yViewPositive = 20;
     public float yViewNegative = -20;
@@ -34,7 +34,7 @@ public class DataSensors extends Activity implements SensorListener {
         setContentView(R.layout.activity_sensors_data);
         mySensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         whichDeviceWasSelected = getIntent().getIntExtra("deviceSelected",0);
-        ip = "0.0.0." + whichDeviceWasSelected;
+        ip = "192.168.0." + whichDeviceWasSelected;
         x = (TextView) findViewById(R.id.xValue);
         y = (TextView) findViewById(R.id.yValue);
         z = (TextView) findViewById(R.id.zValue);
@@ -80,14 +80,27 @@ public class DataSensors extends Activity implements SensorListener {
         synchronized (this){
             Log.d(sensorLog, "On sensor changed: " + i + " X:" + floats[0] + " Y:" + floats[1] + " Z:" + floats[2]);
             if(i == SensorManager.SENSOR_ORIENTATION){
-                if(floats[1] >= yViewPositive)
-                    direction.setText("Up");
-                else if(floats[1] <= yViewNegative)
-                    direction.setText("Down");
-                else if(floats[2] >= zViewPositive)
-                    direction.setText("Left");
-                else if(floats[2] <= zViewNegative)
-                    direction.setText("Right");
+                if(floats[1] >= yViewPositive) {
+                    message = "UP";
+                    this.packager.setSensorsMessage(message);
+                    direction.setText("" + message);
+                    Log.d("Direction:",message);
+                }else if(floats[1] <= yViewNegative) {
+                    message = "DOWN";
+                    this.packager.setSensorsMessage(message);
+                    direction.setText("" + message);
+                    Log.d("Direction:",message);
+                }else if(floats[2] >= zViewPositive) {
+                    message = "LEFT";
+                    this.packager.setSensorsMessage(message);
+                    direction.setText("" + message);
+                    Log.d("Direction:",message);
+                }else if(floats[2] <= zViewNegative) {
+                    message = "RIGHT";
+                    this.packager.setSensorsMessage(message);
+                    direction.setText(""+message);
+                    Log.d("Direction:",message);
+                }
                 /*else if(!(floats[1] >= yViewPositive
                         || floats[1] <= yViewNegative)
                         && !(floats[2] >= zViewPositive

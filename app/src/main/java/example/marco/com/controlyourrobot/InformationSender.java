@@ -21,11 +21,10 @@ public class InformationSender {
         this.packager = new SendingInformationOverWifi(ip,port);
     }
 
-    public void setSensorsMessage(float valueOfX, float valueOfY, float valueOfZ){
-        String message = ("Value of X: " +valueOfX
-                        +"\n Value of Y: " +valueOfY
-                        +"\n Value of Z: " +valueOfZ);
+    public void setSensorsMessage(String messageReceived){
+        String message = ""+messageReceived;
         this.packager.setMessage(message);
+        sendPackage();
     }
 
     public void sendPackage(){

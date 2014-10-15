@@ -27,6 +27,7 @@ public class SendingInformationOverWifi implements Runnable{
     public void setMessage(String message)
     {
         this.message = message;
+        run();
     }
 
     @Override

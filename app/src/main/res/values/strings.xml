@@ -23,6 +23,7 @@
     <string name="left">Left</string>
     <string name="up">Up</string>
     <string name="down">Down</string>
+    <string name="title_activity_ip">ipActivity</string>
+    <string name="ipTextLabel">Insert the ip of the server below</string>
 
 </resources>
-
