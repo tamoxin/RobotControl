@@ -17,7 +17,7 @@ public class DataSensors extends Activity implements SensorListener {
     private TextView x,y,z,direction;
     private SensorManager mySensorManager;
     private int whichDeviceWasSelected;
-    private int port = 61557;
+    private int port = 7777;
     private String ip;
     private InformationSender packager;
     private Toast ipToaster, portToaster;
