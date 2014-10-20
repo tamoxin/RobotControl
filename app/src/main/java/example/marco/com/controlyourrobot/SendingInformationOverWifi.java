@@ -12,15 +12,13 @@ import java.net.InetAddress;
 public class SendingInformationOverWifi implements Runnable{
 
     String ip, message;
-    int port = 0;
+    int port = 7777;
 
     public SendingInformationOverWifi(){
-        this.ip = "0.0.0.0";
-        this.port = 0;
+        this.port = 7777;
     }
 
-    public SendingInformationOverWifi(String ip, int internetPort){
-        this.ip = ip;
+    public SendingInformationOverWifi(int internetPort){
         this.port = internetPort;
     }
 
@@ -33,13 +31,16 @@ public class SendingInformationOverWifi implements Runnable{
     @Override
     public void run() {
         try {
-            InetAddress packageReadyIP = InetAddress.getByName(this.ip);
+            InetAddress packageReadyIP = InetAddress.getByName("localhost");
             int packageReadyInternetPort = this.port;
             DatagramSocket socket = new DatagramSocket();
             byte[] buffer;
             buffer = this.message.getBytes();
+            //Checar si funciona con el length del buffer
+            int msg_length = message.length();
 
-            DatagramPacket packet = new DatagramPacket(buffer, buffer.length, packageReadyIP, packageReadyInternetPort);
+            //Checar parámetro de buffer. Si no, pasar el mensaje como parámetro.
+            DatagramPacket packet = new DatagramPacket(buffer, msg_length, packageReadyIP, packageReadyInternetPort);
             socket.send(packet);
         }
         catch (Exception e) {

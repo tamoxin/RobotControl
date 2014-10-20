@@ -15,10 +15,9 @@ public class InformationSender {
         this.packager = new SendingInformationOverWifi();
     }
 
-    public void prepareForSendingInformationOverWifi(String ip, int port){
-        Log.d("IP: ",ip);
+    public void prepareForSendingInformationOverWifi(int port){
         Log.d("Port: ",""+port);
-        this.packager = new SendingInformationOverWifi(ip,port);
+        this.packager = new SendingInformationOverWifi(port);
     }
 
     public void setSensorsMessage(String messageReceived){
